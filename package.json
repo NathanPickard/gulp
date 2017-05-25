@@ -9,6 +9,7 @@
   "author": "Nathan Pickard <nathan.pickard87@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0"
   }
 }
