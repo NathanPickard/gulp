@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
+var eslint = require('gulp-eslint');
 
 gulp.task('default', function() {
   console.log('hi there!');
