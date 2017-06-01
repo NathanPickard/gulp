@@ -3,6 +3,9 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var eslint = require('gulp-eslint');
+var jasmine = require('gulp-jasmine-phantom');
+var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
 
 gulp.task('default', function() {
   console.log('hi there!');
@@ -11,6 +14,13 @@ gulp.task('default', function() {
   });
   browserSync.stream();
 });
+
+gulp.task('dist', [
+  'copy-html',
+  'styles',
+  'lint',
+  'script-dist'
+]);
 
 gulp.task('styles', function() {
   gulp.src('sass/**/*.scss')
