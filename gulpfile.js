@@ -22,6 +22,12 @@ gulp.task('dist', [
   'script-dist'
 ]);
 
+gulp.task('scripts', function() {
+  gulp.src('js/**/*.js')
+    .pipe(concat('all.js'))
+    .pipe(gulp.dest('dist/js'));
+});
+
 gulp.task('styles', function() {
   gulp.src('sass/**/*.scss')
       .pipe(sass().on('error', sass.logError))
@@ -29,4 +35,9 @@ gulp.task('styles', function() {
         browsers: ['last 2 versions']
       }))
       .pipe(gulp.dest('./css'));
+});
+
+gulp.task('copy-images', function() {
+  gulp.src('img/*')
+      .pipe(gulp.dest('dist/img'));
 });
