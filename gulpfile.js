@@ -41,3 +41,10 @@ gulp.task('copy-images', function() {
   gulp.src('img/*')
       .pipe(gulp.dest('dist/img'));
 });
+
+gulp.task('lint', function() {
+  return gulp.src(['js/**/*.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failOnError());
+});
