@@ -48,3 +48,11 @@ gulp.task('lint', function() {
     .pipe(eslint.format())
     .pipe(eslint.failOnError());
 });
+
+gulp.task('tests', function() {
+  gulp.src('tests/spec/extraSpec.js')
+      .pipe(jasmine({
+          integration: true,
+          vendor: 'js/**/*.js'
+      }));
+});
