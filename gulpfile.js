@@ -37,6 +37,11 @@ gulp.task('styles', function() {
       .pipe(gulp.dest('./css'));
 });
 
+gulp.task('copy-html', function() {
+  gulp.src('./index.html')
+      .pipe(gulp.dest('./dist'));
+});
+
 gulp.task('copy-images', function() {
   gulp.src('img/*')
       .pipe(gulp.dest('dist/img'));
