@@ -7,12 +7,15 @@ var jasmine = require('gulp-jasmine-phantom');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
-gulp.task('default', function() {
-  console.log('hi there!');
+gulp.task('default', ['copy-html', 'copy-images', 'styles', 'lint', 'scripts'], function() {
+  gulp.watch('sass/**/*.scss', ['styles']);
+  gulp.watch('js/**/*.js', ['lint']);
+  gulp.watch('/index.html', ['copy-html']);
+  gulp.watch('./dist/index.html').on('change', browserSync.reload);
+
   browserSync.init({
-    server: './'
+    server: './dist'
   });
-  browserSync.stream();
 });
 
 gulp.task('dist', [
